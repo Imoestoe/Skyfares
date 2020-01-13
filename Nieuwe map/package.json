@@ -9,6 +9,8 @@
   "author": "Mart",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "heroku": "^7.35.1",
+    "heroku.js": "^0.12.2"
   }
 }
