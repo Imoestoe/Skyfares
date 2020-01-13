@@ -7,7 +7,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is online!`)
 
-    bot.user.setActivity(`${bot.users.size} users!`, { type = "WATCHING"});
+    bot.user.setActivity(`${bot.users.size} users!`, {type: "WATCHING"});
 })
 
 bot.login(process.env.token);
