@@ -9,7 +9,7 @@ bot.on("ready", async () => {
 
 
       let activities = [ `${bot.users.size-1} users!` , `play.skyfares.net` ], i = 0;
-      setInterval(() => bot.user.setActivity(`${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
+      setInterval(() => bot.user.setActivity(`!help - ${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
 })
 
 bot.login(process.env.token);
