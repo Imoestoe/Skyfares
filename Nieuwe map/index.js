@@ -8,7 +8,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`)
 
 
-      let activities = [ `${bot.users.size} users!`], i = 0
+      let activities = [ `${bot.guilds.memberCount} users!`], i = 0
       setInterval(() => bot.user.setActivity(`!help | ${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
 })
 
