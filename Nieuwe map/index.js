@@ -13,10 +13,7 @@ client.on("ready", async () => {
 })
 
 client.on('message', message => {
-  /**
-   * This first conditional statement is used to give reactions to the embed messages our bot sends.
-   * Please note everything here is hard-coded, you are responsible for modifying it to fit your needs.
-   */
+
   if(message.author.bot) {
       if(message.embeds.length === 1 && message.embeds[0].description.startsWith('React')) {
           message.react(':ticketreact:625925895013662721')
@@ -59,7 +56,7 @@ client.on('raw', payload => {
               else { // Fetch the message and then get the reaction & user objects and emit the messageReactionAdd event manually.
                   channel.fetchMessage(payload.d.message_id)
                   .then(msg => {
-                      let reaction = msg.reactions.get('ticketreact:625925895013662721');
+                      let reaction = msg.reactions.get('1234');
                       let user = client.users.get(payload.d.user_id);
                       client.emit('messageReactionAdd', reaction, user);
                   })
