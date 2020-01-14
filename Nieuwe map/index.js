@@ -15,7 +15,7 @@ bot.on("ready", async () => {
 module.exports.run = async (bot, message, args) => {
  
   // ID van de categorie van de tickets.
-  const categoryId = "498092615351271425";
+  const categoryId = "559079042008088610";
 
   // Verkrijg Gebruikersnaam
   var userName = message.author.username;
