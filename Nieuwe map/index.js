@@ -8,8 +8,8 @@ bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`)
 
 
-      let activities = [ `${bot.users.size-1} users!` , `play.skyfares.net` ], i = 0;
-      setInterval(() => bot.user.setActivity(`!help - ${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
+      let activities = [ `!help |${bot.users.size-1} users` , `play.skyfares.net` ], i = 0;
+      setInterval(() => bot.user.setActivity(`${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
 })
 
 bot.login(process.env.token);
