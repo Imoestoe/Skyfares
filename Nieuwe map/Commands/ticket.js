@@ -5,11 +5,6 @@ module.exports.run = async (bot, message, args) => {
 
     var userTickets = new Map();
 
-    client.login(config.token);
-    
-    client.on('ready', () => {
-        console.log(client.user.username + " has logged in.");
-    });
     
     client.on('message', message => {
         /**
