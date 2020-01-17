@@ -5,7 +5,7 @@ const bot = new discord.Client();
 bot.commands = new discord.Collection();
 const fs = require("fs");
 
-fs.readdir("./Commands/", (err, files => {
+fs.readdir("./Commands/", (err, files) => {
 
   if (err) console.log(err);
 
@@ -24,7 +24,7 @@ bot.commands.set(fileGet.help.name, fileGet);
 
 })
 
-}))
+});
 
 
 
