@@ -16,7 +16,7 @@ fs.readdir("./Commands/", (err, files) => {
    return;
   }
 
-jsFiles.foreach((f, i) => {
+jsFiles.forEach((f,i) => {
 var fileGet = require(`./Commands/${f}`);
 console.log(`File ${f} loaded`);
 
