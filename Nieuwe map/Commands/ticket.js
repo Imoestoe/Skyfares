@@ -157,9 +157,5 @@ const botConfig = require("./botconfig.json");
             }
         }
     });
+    bot.login(process.env.token);
 
-
-
-module.exports.help = {
-    name: "hallo"
-}
