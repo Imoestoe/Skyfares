@@ -20,8 +20,6 @@ jsFiles.forEach((f,i) => {
 var fileGet = require(`./Commands/${f}`);
 console.log(`File ${f} loaded`);
 
-bot.commands.set(fileGet.help.name, fileGet);
-
 })
 
 });
