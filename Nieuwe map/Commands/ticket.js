@@ -4,7 +4,7 @@ const discord = require("discord.js");
     var userTickets = new Map();
 
     
-    client.on('message', message => {
+    bot.on('message', message => {
         /**
          * This first conditional statement is used to give reactions to the embed messages our bot sends.
          * Please note everything here is hard-coded, you are responsible for modifying it to fit your needs.
@@ -39,7 +39,7 @@ const discord = require("discord.js");
      * PLEASE NOTE: ticketreact and checkreact are my OWN custom emojis.
      * You need to modify it to match your own emojis.
      */
-    client.on('raw', payload => {
+    bot.on('raw', payload => {
         if(payload.t === 'MESSAGE_REACTION_ADD') { // Check if the event name is MESSAGE_REACTION_ADD
             if(payload.d.emoji.name === 'ticketreact') // If the emoji is ticketreact
             {
