@@ -1,5 +1,4 @@
-const discord = require("discord.js")
-const botConfig = require("./botconfig.json");
+const discord = require("discord.js");
 
 
     var userTickets = new Map();
