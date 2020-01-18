@@ -4,8 +4,18 @@ module.exports.run = async (bot, message, args) => {
 
         try {
 
-    var text = "**Sky Fares** \n\n **Commands**\n > !test - test it";
-
+    var text = {
+        "embed": {
+            "color": 12976133,
+            "description": "**Commands**\n*!Test* - 'Test'",
+            "author": {
+                "name": "Help"
+            },
+            "footer": {
+                "text": "By: ImoestoeStudios"
+            }
+        }
+    }
     message.author.send(text);
 
     message.channel.send("This command has shown in your DM");
