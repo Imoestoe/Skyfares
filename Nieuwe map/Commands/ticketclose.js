@@ -2,72 +2,34 @@ const discord = require("discord.js");
  
 module.exports.run = async (bot, message, args) => {
  
-    // ID van de categorie van de tickets.
+    // Id van category van tickets.
     const categoryId = "668052353961820161";
  
-    // Verkrijg Gebruikersnaam
-    var userName = message.author.username;
-    // Verkrijg discriminator
-    var userDiscriminator = message.author.discriminator;
+    // Als bericht in ticket kanaal is dan verwijder kanaal ander zend bericht
+    if (message.channel.parentID == categoryId) {
  
-    // Als ticket al gemaakt is
-    var bool = false;
+        message.channel.delete();
  
-    // Kijk na als ticket al gemaakt is.
-    message.guild.channels.forEach((channel) => {
+    } else {
  
-        // Als ticket is gemaakt, zend bericht.
-        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
+        message.channel.send("Error: Something went wrong!");
  
-            message.channel.send("You already have a ticket!");
+    }
  
-            bool = true;
+    var embedCloseTicket = new discord.RichEmbed()
+        .setTitle("Hoi, " + message.channel.name)
+        .setDescription("This ticket has marked as closed!")
+        .setFooter("ticket closed");
  
-        }
+    // Vind kanaal voor de logs.
+    var logChannel = message.guild.channels.find("name", "log");
+    if (!logChannel) return message.channel.send("Channel doesn't exit.");
  
-    });
- 
-    // Als ticket return code.
-    if (bool == true) return;
- 
-    var embedCreateTicket = new discord.RichEmbed()
-        .setTitle("Hey, " + message.author.username)
-        .setFooter("Your support channel will be created.");
- 
-    message.channel.send(embedCreateTicket);
- 
-    // Maak kanaal en zet in juiste categorie.
-    message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
- 
-        createdChan.setParent(categoryId).then((settedParent) => { // Zet kanaal in category.
- 
-            // Zet perms voor iedereen
-            settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), { "READ_MESSAGES": false });
-            // Zet perms voor de gebruiker die ticket heeft aangemaakt.
-            settedParent.overwritePermissions(message.author, {
- 
-                "READ_MESSAGES": true, "SEND_MESSAGES": true,
-                "ATTACH_FILES": true, "CONNECT": true,
-                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
- 
-            });
- 
-            var embedParent = new discord.RichEmbed()
-                .setTitle("Hoi, " + message.author.username.toString())
-                .setDescription("Please type your message here.");
- 
-            settedParent.send(embedParent);
-        }).catch(err => {
-            message.channel.send("Error: Something went wrong.");
-        });
- 
-    }).catch(err => {
-        message.channel.send("Error: Something went wrong.");
-    });
+    logChannel.send(embedCloseTicket);
  
 }
  
 module.exports.help = {
-    name: "ticket",
-    description: "Maak een ticket aan"
+    name: "close",
+    description: "Sluit een ticket af"
 }
