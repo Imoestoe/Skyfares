@@ -6,16 +6,37 @@ module.exports.run = async (bot, message, args) => {
 
     var text = {
         "embed": {
-            "color": 12976133,
-            "description": "**Commands**\n\n*!Test* - 'Test'\n*!Rules* - 'Soon'",
+            "color": 9252275,
             "author": {
                 "name": "Help"
             },
             "footer": {
-                "text": "By: ImoestoeStudios"
-            }
-        }
-    }
+                "text": "By: Imoestoe"
+            },
+            "timestamp": "©Skyfares",
+            "fields": [
+                {
+                    "name": "!Rules",
+                    "value": "Command discription.",
+                    "inline": false
+                },
+                {
+                    "name": "!Help",
+                    "value": "Command discription.",
+                    "inline": false
+                },
+                {
+                    "name": "!soon",
+                    "value": "Command discription.",
+                    "inline": false
+                },
+                {
+                    "name": "!soon",
+                    "value": "Command discription.",
+                    "inline": false
+                }
+            ]
+        }}
     message.author.send(text);
 
     message.channel.send("This command has shown in your DM");
