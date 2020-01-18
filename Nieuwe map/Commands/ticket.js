@@ -2,13 +2,6 @@ const discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
 
 var userTickets = new Map();
-
-client.login(config.token);
-
-client.on('ready', () => {
-    console.log(client.user.username + " has logged in.");
-});
-
 client.on('message', message => {
     /**
      * This first conditional statement is used to give reactions to the embed messages our bot sends.
