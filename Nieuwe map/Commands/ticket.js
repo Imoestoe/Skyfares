@@ -1,5 +1,5 @@
     // ID van de categorie van de tickets.
-    const categoryId = "498092615351271425";
+    const categoryId = "668052353961820161";
  
     // Verkrijg Gebruikersnaam
     var userName = message.author.username;
