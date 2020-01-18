@@ -34,10 +34,11 @@ module.exports.run = async (bot, message, args) => {
  
     // Maak embed aan.
     var giveawayEmbed = new Discord.MessageEmbed()
-        .setTitle("🎉 **GIVEAWAY** 🎉")
-        .setFooter(`Ends: ${dateTime}`)
-        .setDescription(item)(`/n`);
-        .setThumbnail(`${picture}`);
+    .setThumbnail(`${picture}`)
+    .setTitle("🎉 **GIVEAWAY** 🎉")
+    .setFooter(`Ends: ${dateTime}`)
+    .setDescription(item)
+ 
         
  
     // Verzend embed en zet de reactie op de popper.
