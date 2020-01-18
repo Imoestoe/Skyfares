@@ -4,10 +4,8 @@ module.exports.run = async (bot, message, args) => {
  
     // Argumenten die we later nodig hebben.
     var item = "";
-    var picture = "";
     var time;
     var winnerCount;
-    var reason = "";
  
     // Nakijken als je perms hebt om dit command te doen.
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Sorry jij kan dit niet doen");
@@ -20,10 +18,6 @@ module.exports.run = async (bot, message, args) => {
     time = args[1];
     // Welke prijs men kan winnen.
     item = args.splice(2, args.length).join(' ');
-
-    picture = args.splice(3, args.length).join(' ');
-
-    picture = args.splice(4, args.length).join(' ');
  
     // Verwijder het bericht dat net is gemaakt door de gebruiker.
     message.delete();
@@ -33,13 +27,10 @@ module.exports.run = async (bot, message, args) => {
     var dateTime = new Date(date + (time * 1000));
  
     // Maak embed aan.
-    var giveawayEmbed = new Discord.MessageEmbed()
-    .setThumbnail(`${picture}`)
-    .setTitle("🎉 **GIVEAWAY** 🎉")
-    .setFooter(`Ends: ${dateTime}`)
-    .setDescription(item)
- 
-        
+    var giveawayEmbed = new discord.RichEmbed()
+        .setTitle("🎉 **GIVEAWAY** 🎉")
+        .setFooter(`Vervalt: ${dateTime}`)
+        .setDescription(item);
  
     // Verzend embed en zet de reactie op de popper.
     var embedSend = await message.channel.send(giveawayEmbed);
