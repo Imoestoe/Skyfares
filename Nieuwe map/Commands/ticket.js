@@ -51,7 +51,7 @@ const discord = require("discord.js");
                     else { // Fetch the message and then get the reaction & user objects and emit the messageReactionAdd event manually.
                         channel.fetchMessage(payload.d.message_id)
                         .then(msg => {
-                            let reaction = msg.reactions.get('ticketreact:625925895013662721');
+                            let reaction = msg.reactions.get(':heavy_plus_sign:');
                             let user = client.users.get(payload.d.user_id);
                             client.emit('messageReactionAdd', reaction, user);
                         })
