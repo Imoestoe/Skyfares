@@ -16,14 +16,28 @@ fs.readdir("./Commands/", (err, files) => {
    return;
   }
 
-jsFiles.forEach((f,i) => {
+jsFiles.forEach((f, i) => {
 var fileGet = require(`./Commands/${f}`);
 console.log(`File ${f} loaded`);
+
+bot.commands.set(fileGet.help.name, fileGet);
 
 })
 
 });
 
+bot.on("message", async message => {
+
+if (message.author.bot) return;
+if (message.channel.type === "dm") return;
+var prefix = botConfig.prefix;
+var messageArray = message.content.split(" ");
+var command = messageArray[0];
+var arguments = messageArray.slice(1);
+var commands = bot.commands.get(command.slice(prefix.length));
+if(commands) commands.run(bot, message, arguments);
+
+})
 
 
 bot.on("ready", async () => {
