@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
  
     // ID van de categorie van de tickets.
-    const categoryId = "498092615351271425";
+    const categoryId = "668052353961820161";
  
     // Verkrijg Gebruikersnaam
     var userName = message.author.username;
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         // Als ticket is gemaakt, zend bericht.
         if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
  
-            message.channel.send("Je hebt al een ticket aangemaakt");
+            message.channel.send("You already have a ticket!");
  
             bool = true;
  
@@ -31,8 +31,8 @@ module.exports.run = async (bot, message, args) => {
     if (bool == true) return;
  
     var embedCreateTicket = new discord.RichEmbed()
-        .setTitle("Hoi, " + message.author.username)
-        .setFooter("Support kanaal wordt aangemaakt");
+        .setTitle("Hey, " + message.author.username)
+        .setFooter("Your support channel will be created.");
  
     message.channel.send(embedCreateTicket);
  
@@ -54,15 +54,15 @@ module.exports.run = async (bot, message, args) => {
  
             var embedParent = new discord.RichEmbed()
                 .setTitle("Hoi, " + message.author.username.toString())
-                .setDescription("Zet hier je vraag/bericht");
+                .setDescription("Please type your message here.");
  
             settedParent.send(embedParent);
         }).catch(err => {
-            message.channel.send("Er is iets fout gelopen.");
+            message.channel.send("Error: Something went wrong.");
         });
  
     }).catch(err => {
-        message.channel.send("Er is iets fout gelopen.");
+        message.channel.send("Error: Something went wrong.");
     });
  
 }
