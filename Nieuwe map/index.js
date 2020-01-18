@@ -16,12 +16,12 @@ fs.readdir("./Commands/", (err, files) => {
    return;
   }
 
-jsFiles.forEach((f, i) => {
-var fileGet = require(`./Commands/${f}`);
-console.log(`File ${f} loaded`);
+  jsFiles.forEach((f, i) => {
+    var fileGet = require(`./Commands/${f}`);
+    console.log(`File ${f} loaded`);
 
-bot.commands.set(fileGet.help.name, fileGet);
-
+    bot.commands.set(fileGet.help.name, fileGet);
+    
 })
 
 });
