@@ -9,12 +9,12 @@ client.on('message', message => {
      */
     if(message.author.bot) {
         if(message.embeds.length === 1 && message.embeds[0].description.startsWith('React')) {
-            message.react(':ticketreact:625925895013662721')
+            message.react(':thumbsup_tone3:')
             .then(msgReaction => console.log('Reacted.'))
             .catch(err => console.log(err));
         }
         if(message.embeds.length === 1 && message.embeds[0].title === 'Ticket Support') {
-            message.react(':checkreact:625938016510410772')
+            message.react(':thumbsup_tone3:')
             .then(reaction => console.log("Reacted with " + reaction.emoji.name))
             .catch(err => console.log(err));
         }
@@ -24,7 +24,7 @@ client.on('message', message => {
      * I copied the ID of the embed message sent and used that to check if reactions were
      * added to that. Check the 'raw' event.
      */
-    if(message.content.toLowerCase() === '?sendmsg') {
+    if(message.content.toLowerCase() === '!sendmsg') {
         const embed = new discord.RichEmbed();
         embed.setAuthor(client.user.username, client.user.displayAvatarURL);
         embed.setDescription('React to this message to open a support ticket');
@@ -49,7 +49,7 @@ client.on('raw', payload => {
                 else { // Fetch the message and then get the reaction & user objects and emit the messageReactionAdd event manually.
                     channel.fetchMessage(payload.d.message_id)
                     .then(msg => {
-                        let reaction = msg.reactions.get('ticketreact:625925895013662721');
+                        let reaction = msg.reactions.get(':thumbsup_tone3:');
                         let user = client.users.get(payload.d.user_id);
                         client.emit('messageReactionAdd', reaction, user);
                     })
@@ -67,7 +67,7 @@ client.on('raw', payload => {
             else {
                 channel.fetchMessage(payload.d.message_id)
                 .then(msg => {
-                    let reaction = msg.reactions.get('checkreact:625938016510410772');
+                    let reaction = msg.reactions.get(':thumbsup_tone3:');
                     let user = client.users.get(payload.d.user_id);
                     client.emit('messageReactionAdd', reaction, user);
                 })
