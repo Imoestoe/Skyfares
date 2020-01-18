@@ -16,23 +16,23 @@ module.exports.run = async (bot, message, args) => {
             "timestamp": "©Skyfares",
             "fields": [
                 {
-                    "name": "!Rules",
-                    "value": "Command discription.",
+                    "name": " ",
+                    "value": "!Rules",
                     "inline": false
                 },
                 {
-                    "name": "!Help",
-                    "value": "Command discription.",
+                    "name": "Command discription.",
+                    "value": "!ticket",
                     "inline": false
                 },
                 {
-                    "name": "!soon",
-                    "value": "Command discription.",
+                    "name": "Command discription.",
+                    "value": "!test",
                     "inline": false
                 },
                 {
-                    "name": "!soon",
-                    "value": "Command discription.",
+                    "name": "Command discription.",
+                    "value": " " ,
                     "inline": false
                 }
             ]
