@@ -2,7 +2,7 @@ const discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
 
 var userTickets = new Map();
-client.on('message', message => {
+bot.on('message', message => {
     /**
      * This first conditional statement is used to give reactions to the embed messages our bot sends.
      * Please note everything here is hard-coded, you are responsible for modifying it to fit your needs.
@@ -26,7 +26,7 @@ client.on('message', message => {
      */
     if(message.content.toLowerCase() === '!sendmsg') {
         const embed = new discord.RichEmbed();
-        embed.setAuthor(client.user.username, client.user.displayAvatarURL);
+        embed.setAuthor(bot.user.username, bot.user.displayAvatarURL);
         embed.setDescription('React to this message to open a support ticket');
         embed.setColor('#F39237')
         message.channel.send(embed);
@@ -37,12 +37,12 @@ client.on('message', message => {
  * PLEASE NOTE: ticketreact and checkreact are my OWN custom emojis.
  * You need to modify it to match your own emojis.
  */
-client.on('raw', payload => {
+bot.on('raw', payload => {
     if(payload.t === 'MESSAGE_REACTION_ADD') { // Check if the event name is MESSAGE_REACTION_ADD
         if(payload.d.emoji.name === 'ticketreact') // If the emoji is ticketreact
         {
             if(payload.d.message_id === '625926893954400266') { // Here we check if the id of the message is the ID of the embed that we had the bot send using the ?sendmsg command.
-                let channel = client.channels.get(payload.d.channel_id) // Get the proper channel object.
+                let channel = bot.channels.get(payload.d.channel_id) // Get the proper channel object.
                 if(channel.messages.has(payload.d.message_id)) { // Check if the channel has the message in the cache.
                     return;
                 }
@@ -50,8 +50,8 @@ client.on('raw', payload => {
                     channel.fetchMessage(payload.d.message_id)
                     .then(msg => {
                         let reaction = msg.reactions.get(':thumbsup_tone3:');
-                        let user = client.users.get(payload.d.user_id);
-                        client.emit('messageReactionAdd', reaction, user);
+                        let user = bot.users.get(payload.d.user_id);
+                        bot.emit('messageReactionAdd', reaction, user);
                     })
                     .catch(err => console.log(err));
                 }
@@ -60,7 +60,7 @@ client.on('raw', payload => {
         // Check if the emoji is checkreact, meaning we're deleting the channel.
         // This will only be significant if our bot crashes/restarts and there are additional ticket channels that have not been closed.
         else if(payload.d.emoji.name === 'checkreact') {
-            let channel = client.channels.get(payload.d.channel_id);
+            let channel = bot.channels.get(payload.d.channel_id);
             if(channel.messages.has(payload.d.message_id)) {
                 return;
             }
@@ -68,8 +68,8 @@ client.on('raw', payload => {
                 channel.fetchMessage(payload.d.message_id)
                 .then(msg => {
                     let reaction = msg.reactions.get(':thumbsup_tone3:');
-                    let user = client.users.get(payload.d.user_id);
-                    client.emit('messageReactionAdd', reaction, user);
+                    let user = bot.users.get(payload.d.user_id);
+                    bot.emit('messageReactionAdd', reaction, user);
                 })
                 // Additional code that I did not need, but leaving it here for future purposes.
                 /*
@@ -83,7 +83,7 @@ client.on('raw', payload => {
     }
 });
 
-client.on('messageReactionAdd', (reaction, user) => {
+bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === 'ticketreact') { // If the emoji name is ticketreact, we will create the ticket channel.
         /**
          * Here we need to check the map to see if the user's id is in there, indicating they have a ticket.
