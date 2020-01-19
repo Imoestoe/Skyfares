@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
  
     // Argumenten die we later nodig hebben.
     var item = "";
-    var picture = "";
+    var picture = "''";
     var time;
     var winnerCount;
  
