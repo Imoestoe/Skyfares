@@ -35,8 +35,7 @@ module.exports.run = async (bot, message, args) => {
     var giveawayEmbed = new discord.RichEmbed()
         .setTitle("🎉 **GIVEAWAY** 🎉")
         .setFooter(`Vervalt: ${dateTime}`)
-        .setDescription(`**To win:**` (item) `\n``**Reason:**` (reason))
-        .setColor('#0099ff')
+        .setDescription("**To win: **")(item)
         .setThumbnail(picture);
  
     // Verzend embed en zet de reactie op de popper.
