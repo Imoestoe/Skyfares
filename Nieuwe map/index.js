@@ -47,7 +47,7 @@ bot.on("ready", async () => {
 
       let activities = [ `!help | ${bot.users.size-1} users` , `play.skyfarers.net` ], i = 0;
       setInterval(() => bot.user.setActivity(`${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
-})
+});
 if(message.channel.type == "text" && message.channel.name.toLowerCase() == "suggestion"){
   message.react("✅");
   message.react("❌");
