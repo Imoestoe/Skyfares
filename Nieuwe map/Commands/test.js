@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
             "timestamp": "©Skyfares",
             "fields": [
                 {
-                    "name": " ",
+                    "name": "/",
                     "value": "!Rules",
                     "inline": false
                 },
@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
                 },
                 {
                     "name": "Command discription.",
-                    "value": " " ,
+                    "value": "/" ,
                     "inline": false
                 }
             ]
