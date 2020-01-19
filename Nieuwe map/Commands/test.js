@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     var text = {
         "embed": {
             "title": "Help menu",
-            "description": "**Commands:**\n\n!Rules\n`Command discription`\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
+            "description": "**Commands:**\n\n!Ticket\n`Create an support channel.`\n\n!Help\n`See all commands.`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
             "footer": {
                 "text": "By: Imoestoe | ©Skyfares"
             },
