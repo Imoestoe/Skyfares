@@ -38,10 +38,15 @@ var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
 
 });
-if (message.channel.type == "text" && message.channel.name.toLowerCase() == "suggestion"){
-  message.react("✅");
-  message.react("❌");
-};
+
+bot.on('message', message => {
+  if (message.channel.id === "668520516424040479") {
+      message.react('✅')
+          .then(() => { 
+              message.react('❌')
+          });
+  }
+});
 
 bot.on("ready", async () => {
 
