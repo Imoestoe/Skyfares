@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
                     "inline": false
                 }
             ]
-        }}
+        }};
     message.author.send(text);
 
     message.channel.send("This command has shown in your DM");
