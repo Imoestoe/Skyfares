@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
  
     // Argumenten die we later nodig hebben.
     var item = "";
-    var picture = "''";
+    var picture = "";
     var time;
     var winnerCount;
  
@@ -17,10 +17,12 @@ module.exports.run = async (bot, message, args) => {
     winnerCount = args[0];
     // Tijd hoelang het moet duren.
     time = args[1];
-    // Welke prijs men kan winnen.
-    picture = args[2];
 
-    item = args.splice(3, args.length).join(' ');
+    reason = args[2];
+    // Welke prijs men kan winnen.
+    picture = args[3];
+
+    item = args.splice(4, args.length).join(' ');
  
     // Verwijder het bericht dat net is gemaakt door de gebruiker.
     message.delete();
@@ -33,7 +35,8 @@ module.exports.run = async (bot, message, args) => {
     var giveawayEmbed = new discord.RichEmbed()
         .setTitle("🎉 **GIVEAWAY** 🎉")
         .setFooter(`Vervalt: ${dateTime}`)
-        .setDescription(item)
+        .setDescription(`**To win:**` (item) `\n``**Reason:**` (reason))
+        .setColor('#0099ff')
         .setThumbnail(picture);
  
     // Verzend embed en zet de reactie op de popper.
