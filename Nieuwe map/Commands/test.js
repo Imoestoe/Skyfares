@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
             "title": "Help menu",
             "description": "**Commands:**\n\n!Ticket\n`Create an support channel.`\n\n!Help\n`See all commands.`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
             "footer": {
-                "text": "By: Imoestoe | ©Skyfares"
+                "text": "By: Imoestoe | ©Skyfarers"
             },
             "color": 8405687
         }};
