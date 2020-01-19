@@ -19,6 +19,7 @@ module.exports.run = async (bot, message, args) => {
     time = args[1];
     // Welke prijs men kan winnen.
     picture = args[2];
+
     item = args.splice(3, args.length).join(' ');
  
     // Verwijder het bericht dat net is gemaakt door de gebruiker.
@@ -33,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("🎉 **GIVEAWAY** 🎉")
         .setFooter(`Vervalt: ${dateTime}`)
         .setDescription(item)
-        .setThumbnail(`${picture}`);
+        .setThumbnail(picture);
  
     // Verzend embed en zet de reactie op de popper.
     var embedSend = await message.channel.send(giveawayEmbed);
