@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle("🎉 **GIVEAWAY** 🎉")
         .setFooter(`Vervalt: ${dateTime}`)
         .setDescription(item)
-        .setThumbnail(picture);
+        .setThumbnail(`${picture}`);
  
     // Verzend embed en zet de reactie op de popper.
     var embedSend = await message.channel.send(giveawayEmbed);
