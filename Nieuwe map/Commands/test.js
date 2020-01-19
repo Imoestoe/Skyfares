@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     var text = {
         "embed": {
             "title": "Help menu",
-            "description": "**Commands:**\n\n!Ticket\n`This will create a channel in the Discord, which only staff can see.`\n` You can report players and bugs here without anyone noticing it.`\n\n!Help\n`See all commands.`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
+            "description": "**Commands:**\n\n!Ticket\n`This will create a channel in the Discord, which only staff can see.`\n` You can report players and bugs here without any other player noticing it.`\n\n!Help\n`See all commands.`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
             "footer": {
                 "text": "Skyfarers ● Help-system"
             },
