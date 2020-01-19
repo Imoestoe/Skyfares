@@ -6,36 +6,12 @@ module.exports.run = async (bot, message, args) => {
 
     var text = {
         "embed": {
-            "color": 9252275,
-            "author": {
-                "name": "Help"
-            },
+            "title": "Help menu",
+            "description": "**Commands:**\n\n!Rules\n`Command discription`\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
             "footer": {
-                "text": "By: Imoestoe"
+                "text": "By: Imoestoe | ©Skyfares"
             },
-            "timestamp": "©Skyfares",
-            "fields": [
-                {
-                    "name": "/",
-                    "value": "!Rules",
-                    "inline": false
-                },
-                {
-                    "name": "Command discription.",
-                    "value": "!ticket",
-                    "inline": false
-                },
-                {
-                    "name": "Command discription.",
-                    "value": "!test",
-                    "inline": false
-                },
-                {
-                    "name": "Command discription.",
-                    "value": "/" ,
-                    "inline": false
-                }
-            ]
+            "color": 8405687
         }};
     message.author.send(text);
 
