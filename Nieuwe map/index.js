@@ -25,9 +25,7 @@ fs.readdir("./Commands/", (err, files) => {
 })
 
 });
-bot.on('guildMemberAdd', member => {
-  member.send("Welcome to the server!");
-});
+
 
 bot.on("message", async message => {
 
