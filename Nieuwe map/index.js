@@ -38,7 +38,7 @@ var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
 
-<<<<<<< HEAD
+
 });
 
 //bot.on('message', message => {
@@ -49,10 +49,7 @@ if(commands) commands.run(bot, message, arguments);
 //          });
 //  }
 //});
-=======
-})
 
->>>>>>> parent of 6f958b7... wadwad
 
 bot.on("ready", async () => {
 
