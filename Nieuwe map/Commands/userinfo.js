@@ -2,7 +2,7 @@ const Discord = module.require('discord.js');
 const moment = require('moment');
 
 module.exports.run = async (bot, message, args) => {
-    if (!userinfo)
+
     let user = message.mentions.users.first() || message.author;
     const joinDiscord = moment(user.createdAt).format('llll');
     const joinServer = moment(user.joinedAt).format('llll');
@@ -22,5 +22,6 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: 'userinfo'
+    name: "userinfo",
+    description: "test"
 }
