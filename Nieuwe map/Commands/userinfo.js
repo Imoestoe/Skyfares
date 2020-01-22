@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run =async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
     let inline = true
     let resence = true
     const status = {
@@ -41,5 +41,5 @@ if (member.user.bot === true) {
 
     module.exports.help = {
         name: "userinfo",
-        description: "Sluit een ticket af"
+        description: "Swdawd"
     }
