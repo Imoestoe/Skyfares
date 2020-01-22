@@ -36,7 +36,6 @@ if (member.user.bot === true) {
     
             message.channel.send(embed);
 
-            message.delete();
     }
 
     module.exports.help = {
