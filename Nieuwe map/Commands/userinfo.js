@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const discord = require("discord.js");
 
 module.exports.run =async (bot, message, args) => {
     let inline = true
@@ -40,5 +40,6 @@ if (member.user.bot === true) {
     }
 
     module.exports.help = {
-        name: "userinfo"
+        name: "userinfo",
+        description: "Sluit een ticket af"
     }
