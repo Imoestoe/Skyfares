@@ -2,6 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
+const roles = JSON.parse(fs.readFileSync("./roles.json", "utf8"));
 bot.commands = new discord.Collection();
 
 
@@ -26,11 +27,7 @@ fs.readdir("./Commands/", (err, files) => {
 
 });
 
-let auto = JSON.parse(fs.readFileSync("./Nieuwe map/roles.js", "utf8"));
-bot.on('guildMemberAdd', member => {
-  var role = auto.role;
-  member.addRole(role);
-});
+
 
 bot.on("message", async message => {
 
@@ -39,11 +36,19 @@ if (message.channel.type === "dm") return;
 var prefix = botConfig.prefix;
 var messageArray = message.content.split(" ");
 var command = messageArray[0];
+var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
 
 
+});
+
+if(!roles[user.id]) roles[user.id] = {
+  roles: geen
+};
+fs.writeFile("./roles.json", JSON.stringify(roles), (err) => {
+  console.log(err)
 });
 
 //bot.on('message', message => {
