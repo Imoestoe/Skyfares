@@ -50,6 +50,11 @@ if(commands) commands.run(bot, message, arguments);
 //  }
 //});
 
+let auto = JSON.parse(fs.readFileSync("./roles.json", "utf8"));
+bot.on('guildMemberAdd', member => {
+  var role = auto.role;
+  member.addRole(role);
+});
 
 bot.on("ready", async () => {
 
