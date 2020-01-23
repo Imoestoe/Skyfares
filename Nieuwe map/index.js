@@ -26,6 +26,11 @@ fs.readdir("./Commands/", (err, files) => {
 
 });
 
+let auto = JSON.parse(fs.readFileSync("./Nieuwe map/roles.js", "utf8"));
+bot.on('guildMemberAdd', member => {
+  var role = auto.role;
+  member.addRole(role);
+});
 
 bot.on("message", async message => {
 
@@ -50,11 +55,6 @@ if(commands) commands.run(bot, message, arguments);
 //  }
 //});
 
-let auto = JSON.parse(fs.readFileSync("./roles.json", "utf8"));
-bot.on('guildMemberAdd', member => {
-  var role = auto.role;
-  member.addRole(role);
-});
 
 bot.on("ready", async () => {
 
