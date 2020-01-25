@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    client.on('message', message => {
-        if(message.content === "-invites"){
+    bot.on('message', message => {
+        if(message.content === "!invites"){
         var user = null;
         user = message.author;
 
