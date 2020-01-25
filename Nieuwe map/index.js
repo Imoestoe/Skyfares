@@ -38,16 +38,13 @@ var prefix = botConfig.prefix;
 var messageArray = message.content.split(" ");
 var command = messageArray[0];
 var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-var args = messageArray.slice(1);
+var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
-if(commands) commands.run(bot, message, args);
+if(commands) commands.run(bot, message, arguments);
 
 
 });
 
-<<<<<<< HEAD
-
-=======
 bot.on('message', message => {
   if(message.content === "!invites"){
   var user = null;
@@ -65,12 +62,12 @@ bot.on('message', message => {
                   var invite = userInvites[i];
                   userInviteCount += invite['uses'];
               }
-                  message.reply(`You have invited ${userInviteCount} user(s) to this server. Keep up the good work!`);
+                  message.reply(`You have invited ${userInviteCount} user(s) to this server.`);
       }
   )
 }
 });
->>>>>>> parent of 2ee253b... awdawd
+
 
 
 //bot.on('message', message => {
