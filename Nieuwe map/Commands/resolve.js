@@ -12,9 +12,7 @@ module.exports.run = async (bot, message, args) => {
                 "text": "Skyfarers ● Admin-system"
             },
         }};
-    message.author.send(text);
-
-    message.channel.send("This command has shown in your DM");
+    message.channel.send(text);
 
     } catch (error) {
         message.channel.send("Error: This command is out of service");
