@@ -2,7 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
-const roles = require("./roles.json")
+
 bot.commands = new discord.Collection();
 
 
@@ -36,8 +36,6 @@ if (message.channel.type === "dm") return;
 var prefix = botConfig.prefix;
 var messageArray = message.content.split(" ");
 var command = messageArray[0];
-var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-var roles = message.guild.roles;
 var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
