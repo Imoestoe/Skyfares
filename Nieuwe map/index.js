@@ -3,6 +3,7 @@ const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
 const roles = require("./roles.json")
+
 bot.commands = new discord.Collection();
 
 
@@ -48,7 +49,7 @@ if(commands) commands.run(bot, message, arguments);
 bot.on('message', message => {
   if(message.content === "!invites"){
   var user = null;
-  const user = message.mentions.users.first();
+  user = message.mentions.users.first();
 
   message.guild.fetchInvites()
   .then
@@ -62,7 +63,7 @@ bot.on('message', message => {
                   var invite = userInvites[i];
                   userInviteCount += invite['uses'];
               }
-                  message.reply(`You have invited ${userInviteCount} user(s) to this server.`);
+                  message.reply(`${user} have invited ${userInviteCount} user(s).`);
       }
   )
 }
