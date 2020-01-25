@@ -2,8 +2,12 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
+<<<<<<< HEAD
 
 
+=======
+const roles = JSON.parse(fs.readFileSync("./roles.json", "utf8"));
+>>>>>>> parent of 319902f... awdawd
 bot.commands = new discord.Collection();
 
 
@@ -45,6 +49,12 @@ if(commands) commands.run(bot, message, arguments);
 
 });
 
+if(!roles[user.id]) roles[user.id] = {
+  roles: geen
+};
+fs.writeFile("./roles.json", JSON.stringify(roles), (err) => {
+  console.log(err)
+});
 
 
 
