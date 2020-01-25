@@ -2,12 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
-<<<<<<< HEAD
-
-
-=======
-const roles = JSON.parse(fs.readFileSync("./roles.json", "utf8"));
->>>>>>> parent of 319902f... awdawd
+const roles = require("./roles.json")
 bot.commands = new discord.Collection();
 
 
@@ -42,20 +37,13 @@ var prefix = botConfig.prefix;
 var messageArray = message.content.split(" ");
 var command = messageArray[0];
 var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+var roles = message.guild.roles;
 var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
 
 
 });
-
-if(!roles[user.id]) roles[user.id] = {
-  roles: geen
-};
-fs.writeFile("./roles.json", JSON.stringify(roles), (err) => {
-  console.log(err)
-});
-
 
 
 //bot.on('message', message => {
@@ -76,6 +64,5 @@ bot.on("ready", async () => {
       let activities = [ `!help | ${bot.users.size-1} users` , `play.skyfarers.net` ], i = 0;
       setInterval(() => bot.user.setActivity(`${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
 });
-
 
 bot.login(process.env.token);
