@@ -45,28 +45,6 @@ if(commands) commands.run(bot, message, arguments);
 
 });
 
-bot.on('message', message => {
-  if(message.content === "!invites"){
-  var user = null;
-  user = message.author;
-
-  message.guild.fetchInvites()
-  .then
-
-  (invites =>
-      {
-          const userInvites = invites.array().filter(o => o.inviter.id === user.id);
-          var userInviteCount = 0;
-              for(var i=0; i < userInvites.length; i++)
-              {
-                  var invite = userInvites[i];
-                  userInviteCount += invite['uses'];
-              }
-                  message.reply(`You have invited ${userInviteCount} user(s) to this server.`);
-      }
-  )
-}
-});
 
 
 
@@ -89,27 +67,5 @@ bot.on("ready", async () => {
       setInterval(() => bot.user.setActivity(`${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
 });
 
-bot.on('message', message => {
-  if(message.content === "-invites"){
-  var user = null;
-  user = message.author;
-
-  message.guild.fetchInvites()
-  .then
-
-  (invites =>
-      {
-          const userInvites = invites.array().filter(o => o.inviter.id === user.id);
-          var userInviteCount = 0;
-              for(var i=0; i < userInvites.length; i++)
-              {
-                  var invite = userInvites[i];
-                  userInviteCount += invite['uses'];
-              }
-                  message.reply(`You have invited ${userInviteCount} user(s) to this server.`);
-      }
-  )
-}
-});
 
 bot.login(process.env.token);
