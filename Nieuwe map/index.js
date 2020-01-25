@@ -38,7 +38,7 @@ var prefix = botConfig.prefix;
 var messageArray = message.content.split(" ");
 var command = messageArray[0];
 var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-var arguments = messageArray.slice(1);
+var args = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, args);
 
