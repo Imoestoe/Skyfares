@@ -48,7 +48,7 @@ if(commands) commands.run(bot, message, arguments);
 bot.on('message', message => {
   if(message.content === "!invites"){
   var user = null;
-  user = message.author;
+  const user = message.mentions.users.first();
 
   message.guild.fetchInvites()
   .then
@@ -62,10 +62,11 @@ bot.on('message', message => {
                   var invite = userInvites[i];
                   userInviteCount += invite['uses'];
               }
-                  message.reply(`You have invited ${userInviteCount} user(s) to this server. Keep up the good work!`);
+                  message.reply(`You have invited ${userInviteCount} user(s) to this server.`);
       }
   )
 }
+
 });
 
 
