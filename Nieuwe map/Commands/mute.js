@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const fs = module.require("fs");
+const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 	if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have manage messages.");
@@ -44,7 +44,8 @@ module.exports.run = async (bot, message, args) => {
 		message.channel.send("I have muted this user!");
 	});
 }
-
+ 
 module.exports.help = {
-	name: "mute"
+    name: "mute",
+    description: "Mute someone"
 }

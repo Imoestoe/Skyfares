@@ -20,7 +20,8 @@ module.exports.run = async (bot, message, args) => {
 		console.log(`I have unmuted ${toMute.user.tag}.`);
 	});
 }
-
+ 
 module.exports.help = {
-	name: "unmute"
+    name: "unmute",
+    description: "unmute someone"
 }
