@@ -1,27 +1,17 @@
 const discord = module.require("discord.js");
-const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => {
+	let embed = new Discord.RichEmbed()
+		.setAuthor(message.author.username)
+		.setDescription("This is the user's info!")
+		.setColor("#9B59B6")
+		.addField("Full Username", message.author.tag)
+		.addField("ID", message.author.id)
+		.addField("Created At", message.author.createdAt);
 
-    let user = message.mentions.users.first() || message.author;
-    const joinDiscord = moment(user.createdAt).format('llll');
-    const joinServer = moment(user.joinedAt).format('llll');
-    let embed = new Discord.RichEmbed()
-        .setAuthor(user.username + '#' + user.discriminator, user.displayAvatarURL)
-        .setDescription(`${user}`)
-        .setColor(`8405687`)
-        .setThumbnail(`${user.displayAvatarURL}`)
-        .addField('Joined at:', `${moment.utc(user.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
-        .addField('Status:', user.presence.status, true)
-        .addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
-        .setFooter(`ID: ${user.id}`)
-        .setTimestamp();
-
-    message.channel.send({ embed: embed });
-    return;
+	message.channel.send({embed: embed});
 }
 
 module.exports.help = {
-    name: "userinfo",
-    description: "kaas"
+	name: "userinfo"
 }
