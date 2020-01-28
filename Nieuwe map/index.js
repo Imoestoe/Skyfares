@@ -4,7 +4,7 @@ const bot = new discord.Client();
 const fs = require("fs");
 
 bot.commands = new discord.Collection();
-bot.mutes = require("./JSON/mutes.json");
+
 
 
 fs.readdir("./Commands/", (err, files) => {
