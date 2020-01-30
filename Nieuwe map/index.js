@@ -44,6 +44,22 @@ if(commands) commands.run(bot, message, arguments);
 
 });
 
+
+var jsonPath = './roles.json';
+var jsonRead = fs.readFileSync(jsonPath);
+var jsonFile = JSON.parse(jsonRead);
+
+bot.on('guildMemberAdd', member => {
+    var guildId = member.guild.id;
+    if (!jsonFile[guildId]) {
+        console.log('Role could not be found')
+    } else {
+        let autoRole = jsonFile[guildId]
+        let myRole = member.guild.roles.find(role => role.name === autoRole.role);
+        member.addRole(myRole)
+    }
+});
+
 bot.setInterval(() => {
   for(let i in bot.mutes) {
     let time = bot.mutes[i].time;
