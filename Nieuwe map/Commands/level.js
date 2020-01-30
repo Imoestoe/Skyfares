@@ -30,10 +30,10 @@ module.exports.run = async (bot, message, args) => {
     // Maak embed en zend.
     var embemLevel = new discord.RichEmbed()
         .setTitle(message.author.username)
-        .setColor("#35ea96")
+        .setColor("#8405687")
         .addField("Level", levelUser, true)
         .addField("xp", xpUser, true)
-        .setFooter(`${whenNextLevel} Xp tot volgend level`, message.author.displayAvatarURL);
+        .setFooter(`${whenNextLevel} Xp to next level`, message.author.displayAvatarURL);
 
     message.channel.send(embemLevel);
 
