@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send({ embed: embed });
     return;
-}
+};
 
 module.exports.help = {
     name: "userinfo",
