@@ -1,3 +1,4 @@
+const discord = require("discord.js");
 const fs = module.require("fs");
 
 module.exports.run = async (bot, message, args) => {
@@ -43,7 +44,8 @@ module.exports.run = async (bot, message, args) => {
 		message.channel.send("I have muted this user!");
 	});
 }
-
+ 
 module.exports.help = {
-	name: "mute"
+    name: "mute",
+    description: "mute"
 }
