@@ -22,6 +22,7 @@ fs.readdir("./Commands/", (err, files) => {
     console.log(`File ${f} loaded`);
 
     bot.commands.set(fileGet.help.name, fileGet);
+    bot.mutes = require("./mutes.json");
     
 })
 
@@ -42,6 +43,29 @@ if(commands) commands.run(bot, message, arguments);
 
 
 });
+
+bot.setInterval(() => {
+  for(let i in bot.mutes) {
+    let time = bot.mutes[i].time;
+    let guildId = bot.mutes[i].guild;
+    let guild = bot.guilds.get(guildId);
+    let member = guild.members.get(i);
+    let mutedRole = guild.roles.find(r => r.name === "Muted");
+    if(!mutedRole) continue;
+
+    if(Date.now() > time) {
+      console.log(`${i} is now able to be unmuted!`);
+
+      member.removeRole(mutedRole);
+      delete bot.mutes[i];
+
+      fs.writeFile("./mutes.json", JSON.stringify(bot.mutes), err => {
+        if(err) throw err;
+        console.log(`I have unmuted ${member.user.tag}.`);
+      });
+    }
+  }
+}, 5000);
 
 
 
