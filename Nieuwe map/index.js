@@ -2,7 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
-const levelFile = ("./levels.json");
+const levelFile = ("./Nieuwe map/levels.json");
 
 bot.commands = new discord.Collection();
 
@@ -93,9 +93,9 @@ if (xpUser >= nextLevelXp) {
 
     // Zenden van een embed met gegevens.
     var embedLevel = new discord.RichEmbed()
-        .setDescription("***Level hoger***")
+        .setDescription("***Level Up!***")
         .setColor("#29e53f")
-        .addField("Nieuw level: ", levelfile[idUser].level);
+        .addField("Currect level: ", levelfile[idUser].level);
 
     message.channel.send(embedLevel);
 
