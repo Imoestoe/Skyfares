@@ -2,7 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
-const levelFile = ("./levels.json");
+const levelfile = require("./Nieuwe map/levels.json");
 
 bot.commands = new discord.Collection();
 
@@ -42,83 +42,71 @@ var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
 
+
 // Genereer random xp.
-var randomxp = Math.floor(Math.random(1) * 15) + 1;
+    var randomxp = Math.floor(Math.random(1) * 15) + 1;
 
-// Verkrijg id van de gebruiker.
-var idUser = message.author.id;
+    // Verkrijg id van de gebruiker.
+    var idUser = message.author.id;
 
-// console.log(randomxp);
+    // console.log(randomxp);
 
-// Als persoon nog niet in file is maak dan standaard aan.
-if (!levelfile[idUser]) {
+    // Als persoon nog niet in file is maak dan standaard aan.
+    if (!levelfile[idUser]) {
 
-    levelfile[idUser] = {
+        levelfile[idUser] = {
 
-        xp: 0,
-        level: 0
+            xp: 0,
+            level: 0
 
-    };
+        };
 
-}
-
-// Voeg xp toe.
-levelfile[idUser].xp += randomxp;
-
-// Verkrijg level van de gebruiker.
-var levelUser = levelfile[idUser].level;
-// Verkrijg xp van de gebruiker.
-var xpUser = levelfile[idUser].xp;
-// Bereken volgend level op basis van de xp.
-var nextLevelXp = levelUser * 300;
-
-// Als het level 0 is zet dan xp op 100.
-if (nextLevelXp === 0) nextLevelXp = 100;
-
-console.log(nextLevelXp + " " + xpUser);
-
-// Als gebruikeer volgend level heeft bereikt zet level 1 hoger en zet in file.
-// Let op Nodemon restart wegens dat we de file als require hebben binnengehaald.
-if (xpUser >= nextLevelXp) {
-
-    levelfile[idUser].level += 1;
-
-    // Wegschrijven van data. Je kan dit ook altijd opslaan maar dit zorgt ervoor dat het data
-    // verkeer te groot wordt.
-    fs.writeFile("./levels.json", JSON.stringify(levelfile), err => {
-
-        if (err) console.log(err);
-
-    });
-
-    // Zenden van een embed met gegevens.
-    var embedLevel = new discord.RichEmbed()
-        .setDescription("***Level Up!***")
-        .setColor("#29e53f")
-        .addField("Currect level: ", levelfile[idUser].level);
-
-    message.channel.send(embedLevel);
-
-}
-
-
-});
-
-
-var jsonPath = './roles.json';
-var jsonRead = fs.readFileSync(jsonPath);
-var jsonFile = JSON.parse(jsonRead);
-
-bot.on('guildMemberAdd', member => {
-    var guildId = member.guild.id;
-    if (!jsonFile[guildId]) {
-        console.log('Role could not be found')
-    } else {
-        let autoRole = jsonFile[guildId]
-        let myRole = member.guild.roles.find(role => role.name === autoRole.role);
-        member.addRole(myRole)
     }
+
+    // Voeg xp toe.
+    levelfile[idUser].xp += randomxp;
+
+    // Verkrijg level van de gebruiker.
+    var levelUser = levelfile[idUser].level;
+    // Verkrijg xp van de gebruiker.
+    var xpUser = levelfile[idUser].xp;
+    // Bereken volgend level op basis van de xp.
+    var nextLevelXp = levelUser * 300;
+    
+    // Als het level 0 is zet dan xp op 100.
+    if (nextLevelXp === 0) nextLevelXp = 100;
+
+    console.log(nextLevelXp + " " + xpUser);
+
+    // Als gebruikeer volgend level heeft bereikt zet level 1 hoger en zet in file.
+    // Let op Nodemon restart wegens dat we de file als require hebben binnengehaald.
+    if (xpUser >= nextLevelXp) {
+
+        levelfile[idUser].level += 1;
+
+        // Wegschrijven van data. Je kan dit ook altijd opslaan maar dit zorgt ervoor dat het data
+        // verkeer te groot wordt.
+        fs.writeFile("./Nieuwe map/levels.json", JSON.stringify(levelfile), err => {
+
+            if (err) console.log(err);
+
+        });
+
+        // Zenden van een embed met gegevens.
+        var embedLevel = new discord.RichEmbed()
+            .setDescription("***Level hoger***")
+            .setColor("#29e53f")
+            .addField("Nieuw level: ", levelfile[idUser].level);
+
+        message.channel.send(embedLevel);
+
+    }
+
+
 });
+
+
+
 
 bot.setInterval(() => {
   for(let i in bot.mutes) {
