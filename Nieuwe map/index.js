@@ -2,7 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
-const levelfile = require("./Nieuwe map/levels.json");
+const levelfile = require("./Data/levels.json");
 
 bot.commands = new discord.Collection();
 
@@ -86,7 +86,7 @@ if(commands) commands.run(bot, message, arguments);
 
         // Wegschrijven van data. Je kan dit ook altijd opslaan maar dit zorgt ervoor dat het data
         // verkeer te groot wordt.
-        fs.writeFile("./Nieuwe map/levels.json", JSON.stringify(levelfile), err => {
+        fs.writeFile("./Data/levels.json", JSON.stringify(levelfile), err => {
 
             if (err) console.log(err);
 
