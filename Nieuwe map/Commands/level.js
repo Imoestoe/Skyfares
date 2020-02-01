@@ -1,5 +1,6 @@
-const fileLevels = require("./Nieuwe map/levels.json");
+const fs = require("fs");
 const discord = require("discord.js");
+const levelFile = ("./Nieuwe map/levels.json");
 
 module.exports.run = async (bot, message, args) => {
 
