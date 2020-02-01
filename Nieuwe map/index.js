@@ -2,7 +2,7 @@ const botConfig = require("./botconfig.json");
 const discord = require("discord.js");
 const bot = new discord.Client();
 const fs = require("fs");
-const levelFile = ("./Nieuwe map/levels.json");
+const levelFile = ("./levels.json");
 
 bot.commands = new discord.Collection();
 
@@ -85,7 +85,7 @@ if (xpUser >= nextLevelXp) {
 
     // Wegschrijven van data. Je kan dit ook altijd opslaan maar dit zorgt ervoor dat het data
     // verkeer te groot wordt.
-    fs.writeFile("./data/levels.json", JSON.stringify(levelfile), err => {
+    fs.writeFile("./levels.json", JSON.stringify(levelfile), err => {
 
         if (err) console.log(err);
 
