@@ -94,9 +94,9 @@ if(commands) commands.run(bot, message, arguments);
 
         // Zenden van een embed met gegevens.
         var embedLevel = new discord.RichEmbed()
-            .setDescription("***Level hoger***")
-            .setColor("#29e53f")
-            .addField("Nieuw level: ", levelfile[idUser].level);
+            .setDescription("**Level Up!**")
+            .setColor("#8405687")
+            .addField("New level: ", levelfile[idUser].level);
 
         message.channel.send(embedLevel);
 
