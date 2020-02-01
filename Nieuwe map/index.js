@@ -85,7 +85,7 @@ if (xpUser >= nextLevelXp) {
 
     // Wegschrijven van data. Je kan dit ook altijd opslaan maar dit zorgt ervoor dat het data
     // verkeer te groot wordt.
-    fs.writeFile("./data/level.json", JSON.stringify(levelfile), err => {
+    fs.writeFile("./data/levels.json", JSON.stringify(levelfile), err => {
 
         if (err) console.log(err);
 
