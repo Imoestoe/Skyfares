@@ -50,14 +50,22 @@ if(commands) commands.run(bot, message, arguments);
 
 
 
-//bot.on('message', message => {
-//  if (message.channel.id === "668520516424040479") {
-//      message.react('✅')
-//          .then(() => { 
-//              message.react('❌')
-//          });
-//  }
-//});
+bot.on('message', message => {
+  if (message.channel.id === "692790597169315840") {
+      message.react('✅')
+          .then(() => { 
+              message.react('❌')
+          });
+  }
+});
+bot.on('message', message => {
+  if (message.channel.id === "692790637715652659") {
+      message.react('✅')
+          .then(() => { 
+              message.react('❌')
+          });
+  }
+});
 
 
 bot.on("ready", async () => {
