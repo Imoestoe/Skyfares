@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     message.delete(1000);
     // Id van category van tickets.
-    const categoryId = "668052353961820161";
+    const categoryId = "692803460248371380";
  
     // Als bericht in ticket kanaal is dan verwijder kanaal ander zend bericht
     if (message.channel.parentID == categoryId) {
@@ -18,8 +18,8 @@ module.exports.run = async (bot, message, args) => {
  
     var embedCloseTicket = new discord.RichEmbed()
         .setTitle(message.channel.name, 's ticket')
-        .setDescription("Has marked as closed!")
-        .setFooter("Skyfarers ● ticket-system");
+        .setDescription("Is gemarkeerd als gesloten!")
+        .setFooter("Blockville ● ticket-system");
  
     // Vind kanaal voor de logs.
     var logChannel = message.guild.channels.find("name", "log");

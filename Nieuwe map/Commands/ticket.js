@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     message.delete(1000); 
     // ID van de categorie van de tickets.
-    const categoryId = "668052353961820161";
+    const categoryId = "692803460248371380";
  
     // Verkrijg Gebruikersnaam
     var userName = message.author.username;
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         // Als ticket is gemaakt, zend bericht.
         if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
  
-            message.channel.send("You already have a ticket!");
+            message.channel.send("Je hebt al een ticket!");
  
             bool = true;
  
@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
  
     var embedCreateTicket = new discord.RichEmbed()
         .setTitle("Hey, " + message.author.username)
-        .setFooter("Your support channel will be created.");
+        .setFooter("Je support channel word aangemaakt.");
  
     message.channel.send(embedCreateTicket);
  
@@ -54,8 +54,8 @@ module.exports.run = async (bot, message, args) => {
  
             var embedParent = new discord.RichEmbed()
                 .setTitle("Hey, " + message.author.username.toString())
-                .setDescription("Please type your message here.")
-                .setFooter("Skyfarers ● ticket-system");
+                .setDescription("Typ je bericht hier a.u.b, onze moderators helpen je zo snel mogelijk!")
+                .setFooter("Blockville ● ticket-system");
                 
  
             settedParent.send(embedParent);
