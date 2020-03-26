@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("Blockville ● ticket-system");
  
     // Vind kanaal voor de logs.
-    var logChannel = message.guild.channels.find("name", "log");
+    var logChannel = message.guild.channels.find("name", "logs");
     if (!logChannel) return message.channel.send("Channel doesn't exit.");
  
     logChannel.send(embedCloseTicket);
