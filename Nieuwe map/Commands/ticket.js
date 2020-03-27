@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     message.guild.channels.forEach((channel) => {
  
         // Als ticket is gemaakt, zend bericht.
-        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
+        if (channel.name == "🎫-" + userName.toLowerCase() + "-" + userDiscriminator) {
  
             message.channel.send("Je hebt al een ticket!");
  
