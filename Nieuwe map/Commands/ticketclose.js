@@ -1,7 +1,7 @@
 const discord = require("discord.js");
  
 module.exports.run = async (bot, message, args) => {
-    message.delete(1000);
+
     // Id van category van tickets.
     const categoryId = "692803460248371380";
  
