@@ -47,8 +47,13 @@ if(commands) commands.run(bot, message, arguments);
 
 );
 
+
+
 bot.on('guildMemberAdd', member => {
     member.guild.channels.get('698924007206158406').send(embedwelcome); 
+
+
+
     var embedwelcome = new discord.RichEmbed()
     .setTitle(member)
     .setDescription("Is gejoined")
