@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     var embedCloseTicket = new discord.RichEmbed()
         .setTitle(message.channel.name, 's ticket')
         .setDescription("Is gemarkeerd als gesloten!")
-        .setFooter("Blockville ● ticket-system");
+        .setFooter("Orian ● ticket-system");
  
     // Vind kanaal voor de logs.
     var logChannel = message.guild.channels.find("name", "logs");

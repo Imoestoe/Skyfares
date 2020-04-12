@@ -47,10 +47,14 @@ if(commands) commands.run(bot, message, arguments);
 
 );
 
+bot.on('guildMemberAdd', member => {
+    member.guild.defaultChannel.send(`Welkom in de server van kingdom Orian, ${member}! Lees nog even alle regels en informatie door in #regels en #informatie en veel plezier.`);
+    console.log(`${member.user.username} has joined`);
+});
 
-
-
-
+bot.on('guildMemberAdd', (guildMember) => {
+    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Bezoeker"));
+ });
 
 //bot.on('message', message => {
 //  if (message.channel.id === "692790597169315840") {

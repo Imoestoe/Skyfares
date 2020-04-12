@@ -61,7 +61,7 @@ module.exports.run = async (bot, message, args) => {
             var embedParent = new discord.RichEmbed()
                 .setTitle("Hey, " + message.author.username.toString())
                 .setDescription("Typ je bericht hier a.u.b, onze moderators helpen je zo snel mogelijk!")
-                .setFooter("Blockville ● ticket-system");
+                .setFooter("Orian ● ticket-system");
                 
  
             settedParent.send(embedParent);
