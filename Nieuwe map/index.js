@@ -62,7 +62,7 @@ if(commands) commands.run(bot, message, arguments);
 
 
 bot.on('guildMemberAdd', (guildMember) => {
-    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Bezoeker"));
+    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "👤Bezoeker"));
  });
 
 //bot.on('message', message => {
