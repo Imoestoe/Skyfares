@@ -60,10 +60,6 @@ if(commands) commands.run(bot, message, arguments);
 //    .setFooter("Orian ● ticket-system");
 //});
 
-bot.on('guildMemberAdd', (guildMember) => {
-    member.guild.defaultChannel.send(`Welkom in de server van kingdom Orian, ${guildMember}! Lees nog even alle regels en informatie door in #regels en #informatie en veel plezier.`);
-    console.log(`${member.user.username} has joined`);
-});
 
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Bezoeker"));
