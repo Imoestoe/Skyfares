@@ -30,7 +30,10 @@ fs.readdir("./Commands/", (err, files) => {
 
 
 
-bot.on("message", async message => {
+bot.on('message', msg => {
+    if (msg.channel.id === '698911906471215194') {
+        // Deal with command
+    }
 
 if (message.author.bot) return;
 if (message.channel.type === "dm") return;
