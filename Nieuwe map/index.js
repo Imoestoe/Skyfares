@@ -41,7 +41,64 @@ var arguments = messageArray.slice(1);
 var commands = bot.commands.get(command.slice(prefix.length));
 if(commands) commands.run(bot, message, arguments);
 
+// Genereer random xp.
+    var randomxp = Math.floor(Math.random(1) * 15) + 1;
 
+    // Verkrijg id van de gebruiker.
+    var idUser = message.author.id;
+
+    // console.log(randomxp);
+
+    // Als persoon nog niet in file is maak dan standaard aan.
+    if (!levelfile[idUser]) {
+
+        levelfile[idUser] = {
+
+            xp: 0,
+            level: 0
+
+        };
+
+    }
+
+    // Voeg xp toe.
+    levelfile[idUser].xp += randomxp;
+
+    // Verkrijg level van de gebruiker.
+    var levelUser = levelfile[idUser].level;
+    // Verkrijg xp van de gebruiker.
+    var xpUser = levelfile[idUser].xp;
+    // Bereken volgend level op basis van de xp.
+    var nextLevelXp = levelUser * 300;
+    
+    // Als het level 0 is zet dan xp op 100.
+    if (nextLevelXp === 0) nextLevelXp = 100;
+
+    console.log(nextLevelXp + " " + xpUser);
+
+    // Als gebruikeer volgend level heeft bereikt zet level 1 hoger en zet in file.
+    // Let op Nodemon restart wegens dat we de file als require hebben binnengehaald.
+    if (xpUser >= nextLevelXp) {
+
+        levelfile[idUser].level += 1;
+
+        // Wegschrijven van data. Je kan dit ook altijd opslaan maar dit zorgt ervoor dat het data
+        // verkeer te groot wordt.
+        fs.writeFile("./data/level.json", JSON.stringify(levelfile), err => {
+
+            if (err) console.log(err);
+
+        });
+
+        // Zenden van een embed met gegevens.
+        var embedLevel = new discord.RichEmbed()
+            .setDescription("***Level hoger***")
+            .setColor("#29e53f")
+            .addField("Nieuw level: ", levelfile[idUser].level);
+
+        message.channel.send(embedLevel);
+
+    }
 
 });
 
@@ -50,22 +107,22 @@ if(commands) commands.run(bot, message, arguments);
 
 
 
-bot.on('message', message => {
-  if (message.channel.id === "692790597169315840") {
-      message.react('✅')
-          .then(() => { 
-              message.react('❌')
-          });
-  }
-});
-bot.on('message', message => {
-  if (message.channel.id === "692790637715652659") {
-      message.react('✅')
-          .then(() => { 
-              message.react('❌')
-          });
-  }
-});
+//bot.on('message', message => {
+//  if (message.channel.id === "692790597169315840") {
+//      message.react('✅')
+//        .then(() => { 
+//              message.react('❌')
+//          });
+//  }
+//});
+//bot.on('message', message => {
+//  if (message.channel.id === "692790637715652659") {
+//      message.react('✅')
+//          .then(() => { 
+//              message.react('❌')
+//          });
+// }
+//});
 
 
 bot.on("ready", async () => {

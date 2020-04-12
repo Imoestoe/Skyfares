@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
             "title": "Bug's-Resolved",
             "description": "Files reloaded",
             "footer": {
-                "text": "Skyfarers ● Admin-system"
+                "text": "Blockville ● Admin-system"
             },
         }};
     message.channel.send(text);
