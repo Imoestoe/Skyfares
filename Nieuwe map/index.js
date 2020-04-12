@@ -65,8 +65,8 @@ bot.on('guildMemberAdd', member => {
     console.log(`${member.user.username} has joined`);
 });
 
-bot.on('guildMemberAdd', (guildMember) => {
-    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Bezoeker"));
+bot.on('guildMemberAdd', member => {
+    member.addRole(member.guild.roles.find(role => role.name === "Bezoeker"));
  });
 
 //bot.on('message', message => {
