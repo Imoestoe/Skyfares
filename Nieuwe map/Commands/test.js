@@ -7,11 +7,10 @@ module.exports.run = async (bot, message, args) => {
     var text = {
         "embed": {
             "title": "Help menu",
-            "description": "**Commands:**\n\n!Ticket\n`Dit maakt een prive tekst kanaal aan, waar je kan worden geholpen door staff.`\n` Je kan bugs en spelers raporteren zonder dat iemand het door heeft!`\n\n!Help\n`Zie alle commando's.`\n\n\n!Test\n`Command discription`\n\n\n!Test\n`Command discription`",
+            "description": "**Commands:**\n\n!Ticket\n`Dit maakt een prive tekst kanaal aan, waar je kan worden geholpen door staff.`\n` Je kan bugs en spelers raporteren zonder dat iemand het door heeft!`\n\n!Help\n`Zie alle commando's.`",
             "footer": {
                 "text": "Orian ● Help-system"
             },
-            "color": 8405687
         }};
     message.author.send(text);
 
