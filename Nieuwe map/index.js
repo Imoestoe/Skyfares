@@ -48,6 +48,23 @@ if(commands) commands.run(bot, message, arguments);
 );
 
 
+
+//bot.on('guildMemberAdd', member => {
+//    member.guild.channels.get('698924007206158406').send(embedwelcome); 
+//
+//
+//
+//    var embedwelcome = new discord.RichEmbed()
+//    .setTitle(member)
+//    .setDescription("Is gejoined")
+//    .setFooter("Orian ● ticket-system");
+//});
+
+bot.on('guildMemberAdd', member => {
+    member.guild.defaultChannel.send(`Welkom in de server van kingdom Orian, ${member}! Lees nog even alle regels en informatie door in #regels en #informatie en veel plezier.`);
+    console.log(`${member.user.username} has joined`);
+});
+
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Bezoeker"));
  });
