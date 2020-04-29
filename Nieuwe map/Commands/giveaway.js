@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     var winnerCount;
  
     // Nakijken als je perms hebt om dit command te doen.
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Sorry jij kan dit niet doen");
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Jij bent niet cool genoeg voor dit!");
  
     // !giveaway aantalWinnaars seconden itemOmTeWinnen.
  
